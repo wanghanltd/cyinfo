@@ -8,18 +8,18 @@ using System.Web.Http;
 namespace CYInfo.CMK.Controllers
 {
     [Authorize]
-    public class ValuesController : ApiController
+    public class WebApiController : ApiController
     {
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "Hello REST API",  "I am Authorized" };
         }
 
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return "Hello Authorized API with ID = " + id;
         }
 
         // POST api/values
