@@ -32,9 +32,9 @@ namespace CYInfo.CMKUnitTest
 
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authString);
 
-                var content = new StringContent("", Encoding.UTF8, "application/json");
+                var content = new StringContent("{'CMD':'TSA001','PARAMS':{'A':1}}", Encoding.UTF8, "application/json");
 
-                var message = client.GetAsync("api/webapi").Result.Content.ReadAsStringAsync().Result;
+                var message = client.PostAsync("api/GetShoes", content).Result.Content.ReadAsStringAsync().Result;
 
                 string ttt = message;
             }
