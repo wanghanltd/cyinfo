@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace CYInfo.CMK.Controllers
 {
+     [Authorize]
     public class GetShoesController : ApiController
     {
         // POST api/values
