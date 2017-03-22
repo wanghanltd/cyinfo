@@ -13,6 +13,33 @@ namespace CYInfo.CMK.Controllers
     public class GetShoesController : ApiController
     {
         // POST api/values
+
+         /// <summary>
+        /// http://www.myprecisionfit.com/#!/page/0
+         /// </summary>
+         /// <param name="value">
+         /// value={
+                    //    "Gender": "1",//0 代表女；1代表男
+                    //    "Weight": "23.5",
+                    //    "FootType": "Medium-arch",//High-arch/Medium-arch/Low-arch/Flat
+                    //    "UsuallyWear":"Wide" //Narrow/Standard/Wide Extra/Wide
+                    //"Brands": [
+                    //                {
+                    //                    "BrandName": "Nike",
+                    //                    "ModelNumber": "Revolution 3",
+                    //                    "Size": 43,
+                    //                    "UnitType": "Europe",
+                    //                },
+                    //                {
+                    //                    "BrandName": "New Balance",
+                    //                    "ModelNumber": "MX608V4",
+                    //                    "Size": 43,
+                    //                    "UnitType": "Europe",
+                    //                }
+                    //            ] 
+                    //}
+         /// </param>
+         /// <returns></returns>
         public IHttpActionResult Post([FromBody]JObject value)
         {
             string result = string.Empty; ;
