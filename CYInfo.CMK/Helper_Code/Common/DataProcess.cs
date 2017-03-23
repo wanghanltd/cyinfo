@@ -63,5 +63,31 @@ namespace CYInfo.CMK.Helper_Code.Common
             return return_str;
 
         }
+
+        public static string BrandSize(JObject value)
+        {
+            string return_str = string.Empty;
+
+            try
+            {
+
+                //女性
+
+                //男性
+
+                //儿童
+
+                //婴儿
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+
+
+            return return_str;
+        }
+        
     }
 }
