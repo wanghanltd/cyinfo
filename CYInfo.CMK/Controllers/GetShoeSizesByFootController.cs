@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace CYInfo.CMK.Controllers
 {
      [Authorize]
-    public class GetShoesController : ApiController
+    public class GetShoeSizesByFootController : ApiController
     {
         // POST api/values
 

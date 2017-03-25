@@ -11,6 +11,7 @@ namespace CYInfo.CMK.Helper_Code.Common
     [Authorize]
     public class DataProcess
     {
+        //根据尺码获取合适的鞋子
         public static string MatchShoes(JObject value)
         {
             string return_str = string.Empty;
@@ -64,12 +65,18 @@ namespace CYInfo.CMK.Helper_Code.Common
 
         }
 
+
+
+        //根据品牌 名字 获取该品牌的 |SizeCharts
         public static string BrandSize(JObject value)
         {
             string return_str = string.Empty;
 
             try
             {
+                //获取 品牌参数
+                //获取性别参数
+
 
                 //女性
 
