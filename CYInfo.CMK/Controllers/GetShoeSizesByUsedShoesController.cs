@@ -20,7 +20,7 @@ namespace CYInfo.CMK.Controllers
             try
             {
                 //调用计算脚长
-                result = DataProcess.BrandSize(value);
+                result = DataProcess.GetShoeSizesByUsedShoes(value);
 
             }
             catch (Exception ex)

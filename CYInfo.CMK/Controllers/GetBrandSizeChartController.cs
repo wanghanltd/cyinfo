@@ -21,7 +21,7 @@ namespace CYInfo.CMK.Controllers
             try
             {
                 //调用计算脚长
-                result = DataProcess.BrandSize(value);
+                result = DataProcess.GetBrandSizeChart(value);
 
             }
             catch (Exception ex)
