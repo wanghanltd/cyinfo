@@ -1,4 +1,6 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -113,17 +115,42 @@ namespace CYInfo.CMK.Helper_Code.Common
 
             try
             {
-                //获取 品牌参数
-                //获取性别参数
 
+                string brandName = value["BrandName"].ToString();
+                Dictionary<string, object> returnDic = new Dictionary<string, object>(); 
 
-                //女性
+                try
+                {
+                    var targetCollection = DB.database.GetCollection("Sizes4Brand");
+                    var entities = targetCollection.FindAll();
+                    List<IMongoQuery> qryList = new List<IMongoQuery>();
+                    qryList.Add(Query.EQ("BrandName", brandName));
 
-                //男性
+                    IMongoQuery query = Query.And(qryList);
 
-                //儿童
+                    var entity = targetCollection.FindOne(query);
 
-                //婴儿
+                    if (entity != null)
+                    {
+
+                        returnDic.Add("BrandName",brandName);
+                        string[] genders = { "Women", "Men", "Kids", "Baby" };
+                        foreach (string gender in genders)
+                        {
+                            if (entity.IndexOfName(gender) >= 0)
+                            {
+                                returnDic.Add(gender, entity[gender]);
+                            }
+                        }
+                    }
+
+                    //return_str = returnDic.ToJson();
+                    return_str = JsonConvert.SerializeObject(returnDic);
+                }
+                catch (Exception ex)
+                {
+                   
+                }
 
             }
             catch(Exception ex)
