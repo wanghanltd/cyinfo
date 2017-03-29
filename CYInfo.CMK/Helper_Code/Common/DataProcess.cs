@@ -108,7 +108,18 @@ namespace CYInfo.CMK.Helper_Code.Common
             return return_str;
         }
 
-
+        /// <summary>
+        /// 根据传入的品牌名称，返回 尺码chart
+        /// </summary>
+        /// <param name="value">
+        /// 
+        ///     {
+        ///         "BrandName": "Adidas"
+        ///     }
+        /// 
+        /// 
+        /// </param>
+        /// <returns></returns>
         public static string GetBrandSizeChart(JObject value)
         {
             string return_str = string.Empty;
@@ -162,6 +173,11 @@ namespace CYInfo.CMK.Helper_Code.Common
             return return_str;
         }
 
+
+        /// <summary>
+        /// 获取字母排序 品牌表
+        /// </summary>
+        /// <returns></returns>
         public static object GetBrands()
         {
             string return_str = string.Empty;
