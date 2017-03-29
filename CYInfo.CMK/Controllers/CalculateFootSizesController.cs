@@ -9,8 +9,12 @@ using System.Web.Http;
 
 namespace CYInfo.CMK.Controllers
 {
+
+    /// <summary>
+    /// 根据用户输入的脚的长度和脚围，给出 
+    /// </summary>
     [Authorize]
-    public class GetFootSizeController : ApiController
+    public class CalculateFootSizesController : ApiController
     {
             // POST api/values
         /// <summary>

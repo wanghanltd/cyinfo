@@ -1,6 +1,4 @@
 ﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Builders;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,12 +9,16 @@ using System.Web.Http;
 
 namespace CYInfo.CMK.Helper_Code.Common
 {
-
+    [Authorize]
     public class DataProcess
     {
-
         private static DefaultMongoDb DB = new DefaultMongoDb("BasicData");
-        public static string MatchShoes(JObject value)
+        /// <summary>
+        /// 根据参数中提供的脚尺寸，获取各品牌鞋子对应的尺码
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string GetShoeSizesByFoot(JObject value)
         {
             string return_str = string.Empty;
             List<Dictionary<string, object>> shoesList = new List<Dictionary<string, object>>();
@@ -39,7 +41,11 @@ namespace CYInfo.CMK.Helper_Code.Common
             return return_str;
         }
 
-
+        /// <summary>
+        /// 根据参数中提供的脚尺寸，计算出 International标准对应的尺码尺寸
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string CalculateFootSize(JObject value)
         {
             string return_str = string.Empty;
@@ -69,12 +75,47 @@ namespace CYInfo.CMK.Helper_Code.Common
 
         }
 
-        public static string BrandSize(JObject value)
+
+
+        //根据品牌 名字 获取该品牌的 |SizeCharts
+        public static string GetShoeSizesByUsedShoes(JObject value)
         {
             string return_str = string.Empty;
 
             try
             {
+                //获取 品牌参数
+                //获取性别参数
+
+
+                //女性
+
+                //男性
+
+                //儿童
+
+                //婴儿
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+
+
+            return return_str;
+        }
+
+
+        public static string GetBrandSizeChart(JObject value)
+        {
+            string return_str = string.Empty;
+
+            try
+            {
+                //获取 品牌参数
+                //获取性别参数
+
 
                 //女性
 
@@ -111,7 +152,7 @@ namespace CYInfo.CMK.Helper_Code.Common
                     brandsDic.Add("Brands", entity["Brands"]);
                     brandsList.Add(brandsDic);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -121,6 +162,7 @@ namespace CYInfo.CMK.Helper_Code.Common
 
             return brandsList;
         }
+        
         
     }
 }

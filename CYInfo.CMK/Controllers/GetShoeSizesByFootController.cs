@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace CYInfo.CMK.Controllers
 {
      [Authorize]
-    public class GetShoesController : ApiController
+    public class GetShoeSizesByFootController : ApiController
     {
         // POST api/values
 
@@ -46,7 +46,7 @@ namespace CYInfo.CMK.Controllers
             try
             {
                 //调用处理算法
-                result = DataProcess.MatchShoes(value);
+                result = DataProcess.GetShoeSizesByFoot(value);
 
             }
             catch (Exception ex)

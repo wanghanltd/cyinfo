@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace CYInfo.CMK.Controllers
 {
     [Authorize]
-    public class GetBrandSizeController : ApiController
+    public class GetBrandSizeChartController : ApiController
     {
         public IHttpActionResult Post([FromBody]JObject value)
         {
@@ -21,7 +21,7 @@ namespace CYInfo.CMK.Controllers
             try
             {
                 //调用计算脚长
-                result = DataProcess.BrandSize(value);
+                result = DataProcess.GetBrandSizeChart(value);
 
             }
             catch (Exception ex)
