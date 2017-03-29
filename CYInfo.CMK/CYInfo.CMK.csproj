@@ -220,6 +220,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GetBrandsController.cs" />
     <Compile Include="Controllers\GetBrandSizeChartController.cs" />
     <Compile Include="Controllers\GetShoeSizesByUsedShoesController.cs" />
     <Compile Include="Controllers\CalculateFootSizesController.cs" />
