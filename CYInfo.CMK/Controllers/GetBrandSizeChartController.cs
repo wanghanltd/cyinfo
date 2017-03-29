@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace CYInfo.CMK.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class GetBrandSizeChartController : ApiController
     {
         public IHttpActionResult Post([FromBody]JObject value)
