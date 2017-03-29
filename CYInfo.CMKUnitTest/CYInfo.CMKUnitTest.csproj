@@ -53,6 +53,16 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataProcess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CYInfo.CMK\CYInfo.CMK.csproj">
+      <Project>{80d5e037-b006-45ee-b884-a88121900175}</Project>
+      <Name>CYInfo.CMK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -8,9 +11,11 @@ using System.Web.Http;
 
 namespace CYInfo.CMK.Helper_Code.Common
 {
-    [Authorize]
+
     public class DataProcess
     {
+
+        private static DefaultMongoDb DB = new DefaultMongoDb("BasicData");
         public static string MatchShoes(JObject value)
         {
             string return_str = string.Empty;
@@ -87,6 +92,34 @@ namespace CYInfo.CMK.Helper_Code.Common
 
 
             return return_str;
+        }
+
+        public static object GetBrands()
+        {
+            string return_str = string.Empty;
+            BsonArray brandsList = new BsonArray();
+            BsonDocument brandsDic = new BsonDocument();
+            try
+            {
+                var targetCollection = DB.database.GetCollection("Prefix4Brand");
+                var entities = targetCollection.FindAll();
+
+                foreach (var entity in entities)
+                {
+                    brandsDic = new BsonDocument();
+                    brandsDic.Add("BrandPrefix", entity["BrandPrefix"]);
+                    brandsDic.Add("Brands", entity["Brands"]);
+                    brandsList.Add(brandsDic);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+            return brandsList;
         }
         
     }
