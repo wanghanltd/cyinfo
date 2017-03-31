@@ -12,6 +12,16 @@ namespace CYInfo.CMK.Controllers
     //[Authorize]
     public class GetBrandSizeChartController : ApiController
     {
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        ///   {
+        ///         "BrandName": "Adidas"
+        ///    }
+        /// <returns></returns>
         public IHttpActionResult Post([FromBody]JObject value)
         {
 

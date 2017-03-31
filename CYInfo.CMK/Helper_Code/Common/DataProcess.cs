@@ -186,7 +186,7 @@ namespace CYInfo.CMK.Helper_Code.Common
             try
             {
                 var targetCollection = DB.database.GetCollection("Prefix4Brand");
-                var entities = targetCollection.FindAll();
+                var entities = targetCollection.FindAll().SetSortOrder(SortBy.Ascending("BrandPrefix"));
 
                 foreach (var entity in entities)
                 {
