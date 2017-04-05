@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using HtmlAgilityPack;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using Newtonsoft.Json;
@@ -150,7 +151,31 @@ namespace CYInfo.CMK.Helper_Code.Common
                         {
                             if (entity.IndexOfName(gender) >= 0)
                             {
-                                returnDic.Add(gender, entity[gender]);
+
+                                string originalStr = entity[gender].ToString();
+                                string spanStr = string.Empty;
+
+                                HtmlDocument doc = new HtmlDocument();
+                                doc.LoadHtml(originalStr);
+
+                                var spans = doc.DocumentNode
+                            .Descendants("span")
+                            .Where(d =>
+                                d.Attributes.Contains("class")
+                                &&
+                                d.Attributes["class"].Value.Contains("tablepress-table-description")
+                            );
+
+                                foreach (var spanEntity in spans)
+                                {
+                                    spanStr = spanEntity.InnerHtml;
+
+                                    originalStr=originalStr.Replace(spanStr, "");
+                                }
+
+
+
+                                returnDic.Add(gender, originalStr);
                             }
                         }
                     }
